@@ -1,18 +1,11 @@
 import { verifyWebhook } from "@clerk/nextjs/webhooks";
 import { NextRequest } from "next/server";
-import { createOrUpdateUser } from "../../actions/user";
+import { createOrUpdateUser, deleteUser } from "../../actions/user";
 
 export async function POST(req: NextRequest) {
   try {
     const evt = await verifyWebhook(req);
 
-    // Do something with payload
-    // For this guide, log payload to console
-    const { id } = evt.data;
-    const eventType = evt.type;
-    console.log(
-      `Received webhook with ID ${id} and event type of ${eventType}`,
-    );
     console.log("Webhook payload:", evt.data);
     if (evt.type === "user.created" || evt.type === "user.updated") {
       console.log("user created:", evt.data);
@@ -31,7 +24,19 @@ export async function POST(req: NextRequest) {
       }
     }
     if (evt.type === "user.deleted") {
-      console.log("user deleted:", evt.data);
+      console.log("user deleted!");
+
+      const { id } = evt?.data;
+
+      try {
+        await deleteUser(id);
+        return new Response("user deleted", { status: 200 });
+      } catch (err) {
+        console.log(err);
+        return new Response("error while deleting", {
+          status: 400,
+        });
+      }
     }
 
     return new Response("Webhook received", { status: 200 });
