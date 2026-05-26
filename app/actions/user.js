@@ -9,6 +9,16 @@ export const createOrUpdateUser = async (
 ) => {
   try {
     await dbConnect();
+
+    // creating admin role
+    let role = "user";
+    const admin_email = email_addresses[0].email_address;
+    if (admin_email === process.env.ADMIN_MAIL) {
+      role = "admin";
+    } else {
+      role = "user";
+    }
+
     const user = await User.findOneAndUpdate(
       { clerkId: id },
       {
@@ -16,9 +26,10 @@ export const createOrUpdateUser = async (
           firstName: first_name,
           lastName: last_name,
           email: email_addresses[0].email_address,
+          role: role,
         },
       },
-      { new: true, upsert: true },
+      { new: true, returnDocument: "after" },
     );
 
     return user;
