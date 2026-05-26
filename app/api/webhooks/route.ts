@@ -12,9 +12,12 @@ export async function POST(req: NextRequest) {
 
       const { id, first_name, last_name, email_addresses } = evt?.data;
 
+      if (!id || !first_name || !last_name || !email_addresses) {
+        return new Response("Invalid data", { status: 400 });
+      }
+
       try {
         await createOrUpdateUser(id, first_name, last_name, email_addresses);
-
         return new Response("user create or updated", { status: 200 });
       } catch (err) {
         console.log(err);
@@ -28,6 +31,9 @@ export async function POST(req: NextRequest) {
 
       const { id } = evt?.data;
 
+      if (!id) {
+        return new Response("invalid id", { status: 200 });
+      }
       try {
         await deleteUser(id);
         return new Response("user deleted", { status: 200 });

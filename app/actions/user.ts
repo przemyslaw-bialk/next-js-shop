@@ -1,17 +1,18 @@
 import dbConnect from "../lib/mongodb";
 import User from "../models/user.model";
+import { UserRole } from "../types/user";
 
 export const createOrUpdateUser = async (
-  id,
-  first_name,
-  last_name,
-  email_addresses,
+  id: string,
+  first_name: string,
+  last_name: string,
+  email_addresses: { email_address: string }[],
 ) => {
   try {
     await dbConnect();
 
     // creating admin role
-    let role = "user";
+    let role: UserRole = "user";
     const admin_email = email_addresses[0].email_address;
     if (admin_email === process.env.ADMIN_MAIL) {
       role = "admin";
@@ -29,7 +30,7 @@ export const createOrUpdateUser = async (
           role: role,
         },
       },
-      { new: true, returnDocument: "after" },
+      { new: true, upsert: true },
     );
 
     return user;
@@ -38,7 +39,7 @@ export const createOrUpdateUser = async (
   }
 };
 
-export const deleteUser = async (id) => {
+export const deleteUser = async (id: string) => {
   try {
     await dbConnect();
     await User.findOneAndDelete({ clerkId: id });
