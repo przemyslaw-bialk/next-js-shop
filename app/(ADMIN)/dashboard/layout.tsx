@@ -1,6 +1,6 @@
 import { auth } from "@clerk/nextjs/server";
-import { authorizeAdmin } from "../actions/user";
-import Unauthorized from "../components/Unauthorized";
+import { authorizeAdmin } from "../../services/user.service";
+import Unauthorized from "../../components/Unauthorized";
 
 const DashboardLayout = async ({ children }: { children: React.ReactNode }) => {
   const { userId } = await auth();
