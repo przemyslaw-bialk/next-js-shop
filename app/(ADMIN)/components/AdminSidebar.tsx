@@ -21,6 +21,15 @@ const AdminSidebar = () => {
             <span className="block ">products</span>
           </Link>
         </li>
+        <li>
+          <Link
+            href="/dashboard/products/new"
+            className="flex items-center gap-1 group "
+          >
+            <FiBox className="text-black group-hover:text-accent transition" />
+            <span className="block ">add</span>
+          </Link>
+        </li>
       </ul>
     </nav>
   );
