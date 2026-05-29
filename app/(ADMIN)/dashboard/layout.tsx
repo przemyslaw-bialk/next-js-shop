@@ -1,6 +1,7 @@
 import { auth } from "@clerk/nextjs/server";
 import { authorizeAdmin } from "../../services/user.service";
 import Unauthorized from "../../components/Unauthorized";
+import AdminSidebar from "../components/AdminSidebar";
 
 const DashboardLayout = async ({ children }: { children: React.ReactNode }) => {
   const { userId } = await auth();
@@ -13,9 +14,9 @@ const DashboardLayout = async ({ children }: { children: React.ReactNode }) => {
     return <Unauthorized />;
   }
   return (
-    <div>
-      <p>ADMIN PANEL HERE</p>
-      {children}
+    <div className="flex min-h-screen gap-2 ">
+      <AdminSidebar />
+      <div className="flex-1">{children}</div>
     </div>
   );
 };

@@ -53,10 +53,7 @@
 
 body {
   min-height: 100vh;
-  background:
-    var(--hero-gradient), linear-gradient(to bottom, #fcfbf8, #f5f5f4);
-
-  color: var(--foreground);
+  color: var(--color-primary);
   font-family: var(--font-sans);
 
   background-attachment: fixed;
