@@ -6,7 +6,7 @@ const ProductsPage = async () => {
   const products = await getAllProducts();
   return (
     <div>
-      <h1>PRODUCTS PAGE</h1>
+      <h1 className="font-semibold">PRODUCTS PAGE</h1>
       {products.map((product) => (
         <div key={product._id} className="flex justify-between">
           <ProductList product={product} />
