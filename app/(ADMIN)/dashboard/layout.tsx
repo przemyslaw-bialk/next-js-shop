@@ -16,7 +16,7 @@ const DashboardLayout = async ({ children }: { children: React.ReactNode }) => {
   return (
     <div className="flex min-h-screen gap-2 ">
       <AdminSidebar />
-      <div className="flex-1">{children}</div>
+      <div className="flex-1 mt-2 md:mt-0">{children}</div>
     </div>
   );
 };

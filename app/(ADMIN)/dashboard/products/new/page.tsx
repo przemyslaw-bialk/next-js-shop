@@ -2,7 +2,7 @@ import { createProductAction } from "@/app/actions/products";
 
 const NewProductPage = () => {
   return (
-    <div className="min-h-screen bg-white/70 p-6 backdrop-blur-xl">
+    <div className="min-h-screen p-6 ">
       <div className="mx-auto max-w-lg rounded-2xl border border-neutral-200 bg-white/70 p-6 backdrop-blur-xl">
         <h1 className="mb-6 text-lg font-semibold text-zinc-800">
           Create Product

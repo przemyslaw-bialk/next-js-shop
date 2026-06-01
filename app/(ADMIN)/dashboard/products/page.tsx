@@ -8,7 +8,7 @@ const ProductsPage = async () => {
     <div>
       <h1 className="font-semibold">PRODUCTS PAGE</h1>
       {products.map((product) => (
-        <div key={product._id} className="flex justify-between">
+        <div key={product._id} className="flex justify-between p-2 ">
           <ProductList product={product} />
           <DeleteProduct id={product._id.toString()} />
         </div>

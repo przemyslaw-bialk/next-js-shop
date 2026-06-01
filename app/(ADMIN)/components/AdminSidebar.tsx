@@ -1,81 +1,58 @@
 "use client";
-import Link from "next/link";
-import { RxDashboard } from "react-icons/rx";
-import { FiBox, FiPlus } from "react-icons/fi";
+import AdminMenu from "./AdminMenu";
 import { usePathname } from "next/navigation";
+import { useState } from "react";
+import { RiMenuFold2Fill, RiCloseLargeFill } from "react-icons/ri";
 
 const AdminSidebar = () => {
-  const currentLink = usePathname();
+  const pathname = usePathname();
+  const [isOpen, setIsOpen] = useState(true);
+
+  const toggleMenu = () => setIsOpen((prev) => !prev);
+
+  const handleLinkClick = () => {
+    if (window.innerWidth < 768) {
+      setIsOpen(false);
+    }
+  };
 
   const linkBase =
-    "group flex items-center gap-5 rounded-2xl px-4 py-3 transition text-sm";
-  const activeClass = "bg-[#151515] text-secondary ";
-  const inactiveClass = "text-zinc-800 hover:bg-[#151515] hover:text-secondary";
-
-  const iconBase = "text-zinc-600 transition group-hover:text-secondary";
-  const iconActive = "text-secondary";
+    "group flex items-center gap-5 rounded-2xl px-4 py-3 text-sm transition";
 
   return (
-    <aside className="w-64 min-h-screen border-r border-neutral-200 bg-white/70 backdrop-blur-xl">
-      <nav className="py-1 px-3">
-        <ul className="space-y-2">
-          <li>
-            <Link
-              href="/dashboard"
-              className={`${linkBase} ${
-                currentLink === "/dashboard" ? activeClass : inactiveClass
-              }`}
-            >
-              <RxDashboard
-                size={20}
-                className={currentLink === "/dashboard" ? iconActive : iconBase}
-              />
-              <span>Dashboard</span>
-            </Link>
-          </li>
+    <div>
+      <button
+        onClick={toggleMenu}
+        className="fixed top-0 left-0 z-10 w-full bg-white px-2 pt-1 text-left md:hidden"
+      >
+        <RiMenuFold2Fill size={30} />
+      </button>
 
-          <li>
-            <Link
-              href="/dashboard/products"
-              className={`${linkBase} ${
-                currentLink === "/dashboard/products"
-                  ? activeClass
-                  : inactiveClass
-              }`}
-            >
-              <FiBox
-                size={20}
-                className={
-                  currentLink === "/dashboard/products" ? iconActive : iconBase
-                }
-              />
-              <span>Products</span>
-            </Link>
-          </li>
+      {/* Sidebar */}
+      <aside
+        className={`fixed inset-0 z-120 min-h-screen border-r border-neutral-200 bg-white transition-transform duration-300 md:static md:w-64 ${
+          isOpen ? "translate-x-0" : "-translate-x-full"
+        }`}
+      >
+        <nav className="px-3 py-1">
+          <ul className="space-y-2">
+            <ul className="space-y-2">
+              <li className="block md:hidden mt-3 ml-3">
+                <button onClick={toggleMenu}>
+                  <RiCloseLargeFill />
+                </button>
+              </li>
 
-          <li>
-            <Link
-              href="/dashboard/products/new"
-              className={`${linkBase} ${
-                currentLink === "/dashboard/products/new"
-                  ? activeClass
-                  : inactiveClass
-              }`}
-            >
-              <FiPlus
-                size={20}
-                className={
-                  currentLink === "/dashboard/products/new"
-                    ? iconActive
-                    : iconBase
-                }
+              <AdminMenu
+                pathname={pathname}
+                linkBase={linkBase}
+                handleLinkClick={handleLinkClick}
               />
-              <span>Add Product</span>
-            </Link>
-          </li>
-        </ul>
-      </nav>
-    </aside>
+            </ul>
+          </ul>
+        </nav>
+      </aside>
+    </div>
   );
 };
 
