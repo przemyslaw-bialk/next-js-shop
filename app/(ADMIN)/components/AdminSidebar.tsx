@@ -16,16 +16,13 @@ const AdminSidebar = () => {
     }
   };
 
-  const linkBase =
-    "group flex items-center gap-5 rounded-2xl px-4 py-3 text-sm transition";
-
   return (
     <div>
       <button
         onClick={toggleMenu}
         className="fixed top-0 left-0 z-10 w-full bg-white px-2 pt-1 text-left md:hidden"
       >
-        <RiMenuFold2Fill size={30} />
+        <RiMenuFold2Fill size={30} className="cursor-pointer" />
       </button>
 
       {/* Sidebar */}
@@ -36,19 +33,12 @@ const AdminSidebar = () => {
       >
         <nav className="px-3 py-1">
           <ul className="space-y-2">
-            <ul className="space-y-2">
-              <li className="block md:hidden mt-3 ml-3">
-                <button onClick={toggleMenu}>
-                  <RiCloseLargeFill />
-                </button>
-              </li>
-
-              <AdminMenu
-                pathname={pathname}
-                linkBase={linkBase}
-                handleLinkClick={handleLinkClick}
-              />
-            </ul>
+            <li className="block md:hidden mt-3 ml-3">
+              <button onClick={toggleMenu} className="group">
+                <RiCloseLargeFill className="transition duration-300 group-hover:rotate-180 group-hover:cursor-pointer" />
+              </button>
+            </li>
+            <AdminMenu pathname={pathname} handleLinkClick={handleLinkClick} />
           </ul>
         </nav>
       </aside>

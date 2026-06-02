@@ -4,11 +4,10 @@ import { FiBox, FiPlus } from "react-icons/fi";
 
 type AdminMenuProps = {
   pathname: string;
-  linkBase: string;
   handleLinkClick: () => void;
 };
 
-const AdminMenu = ({ pathname, linkBase, handleLinkClick }: AdminMenuProps) => {
+const AdminMenu = ({ pathname, handleLinkClick }: AdminMenuProps) => {
   const menuItems = [
     {
       name: "Dashboard",
@@ -26,6 +25,10 @@ const AdminMenu = ({ pathname, linkBase, handleLinkClick }: AdminMenuProps) => {
       icon: FiPlus,
     },
   ];
+
+  // styling link
+  const linkBase =
+    "group flex items-center gap-5 rounded-2xl px-4 py-3 text-sm transition";
 
   return (
     <>

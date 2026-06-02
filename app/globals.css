@@ -58,3 +58,7 @@ body {
 
   background-attachment: fixed;
 }
+
+button {
+  cursor: pointer;
+}
