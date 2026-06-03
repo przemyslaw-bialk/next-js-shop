@@ -1,15 +1,30 @@
 import Image, { StaticImageData } from "next/image";
 import model from "../../../public/model.png";
+import ButtonSlider from "./ButtonSlider";
 
 interface ISlides {
   id: number;
   image: StaticImageData;
+  heading: string;
   text: string;
+  button_text: string;
 }
 
 const slides = [
-  { id: 1, image: model, text: "test" },
-  { id: 2, image: model, text: "test2222" },
+  {
+    id: 1,
+    image: model,
+    heading: "Nowa kolekcja Wiosna 2027",
+    text: "Okdryj najnowsze trendy i ponadczasowe klasyki na nowy sezon.",
+    button_text: "Zobacz kolekcję",
+  },
+  {
+    id: 2,
+    image: model,
+    heading: "Nowa kolekcja Wiosna 2027",
+    text: "test tekst",
+    button_text: "test button",
+  },
 ];
 
 const Slides = () => {
@@ -17,8 +32,12 @@ const Slides = () => {
     <div className="flex">
       {slides.map((slide: ISlides) => (
         <div className="min-w-full h-120 bg-[#F3EFEA] flex" key={slide.id}>
-          <div className="p-6 flex-1/12 md:flex-1/2 ">
-            <h1 className="text-2xl font-bold">{slide.text}</h1>
+          <div className=" flex-1/6 md:flex-3/4 p-4 mt-8">
+            <div className="flex flex-col items-start gap-7">
+              <h1 className="text-6xl font-bold">{slide.heading}</h1>
+              <p>{slide.text}</p>
+              <ButtonSlider text={slide.button_text} />
+            </div>
           </div>
 
           <div className="w-full relative  ">

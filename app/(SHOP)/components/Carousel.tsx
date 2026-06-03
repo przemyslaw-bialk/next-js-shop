@@ -8,7 +8,7 @@ import Slides from "./Slides";
 
 export default function Carousel() {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true }, [
-    Autoplay({ delay: 6000 }),
+    Autoplay({ delay: 886000 }),
   ]);
 
   const goToPrev = () => emblaApi?.scrollPrev();
