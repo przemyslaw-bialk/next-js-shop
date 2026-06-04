@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { RxDashboard } from "react-icons/rx";
 import { FiBox, FiPlus } from "react-icons/fi";
+import { AiOutlineFolderAdd } from "react-icons/ai";
 
 type AdminMenuProps = {
   pathname: string;
@@ -23,6 +24,11 @@ const AdminMenu = ({ pathname, handleLinkClick }: AdminMenuProps) => {
       name: "Add Product",
       href: "/dashboard/products/new",
       icon: FiPlus,
+    },
+    {
+      name: "Categories",
+      href: "/dashboard/categories",
+      icon: AiOutlineFolderAdd,
     },
   ];
 
