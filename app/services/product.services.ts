@@ -5,8 +5,9 @@ export async function createProduct(
   name: string,
   stock: number,
   price: number,
+  category: string,
 ) {
-  return Product.create({ name, stock, price });
+  return Product.create({ name, stock, price, category });
 }
 
 // GET ALL PRODUCTS //

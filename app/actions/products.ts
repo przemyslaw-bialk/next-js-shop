@@ -6,6 +6,11 @@ export async function createProductAction(formData: FormData) {
   const name = formData.get("name");
   const stock = Number(formData.get("stock"));
   const price = Number(formData.get("price"));
+  const category = formData.get("category");
+
+  if (!category || typeof category !== "string") {
+    throw new Error("invalid category");
+  }
 
   if (typeof name !== "string" || !name) {
     throw new Error("invalid product name");
@@ -19,7 +24,7 @@ export async function createProductAction(formData: FormData) {
     throw new Error("invalid price");
   }
 
-  await createProduct(name, stock, price);
+  await createProduct(name, stock, price, category);
 
   revalidatePath("/dashboard/products");
 }

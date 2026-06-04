@@ -1,6 +1,8 @@
 import { createProductAction } from "@/app/actions/products";
+import { getCategories } from "@/app/services/category.service";
 
-const NewProductPage = () => {
+const NewProductPage = async () => {
+  const categories = await getCategories();
   return (
     <div className="min-h-screen p-6 ">
       <div className="mx-auto max-w-lg rounded-2xl border border-neutral-200 bg-white/70 p-6 backdrop-blur-xl">
@@ -40,6 +42,13 @@ const NewProductPage = () => {
               className="rounded-xl border border-neutral-200 bg-white px-3 py-2 text-sm text-zinc-800 outline-none transition focus:border-zinc-400"
             />
           </div>
+          <select name="category">
+            {categories.map((category) => (
+              <option key={category._id} value={category._id}>
+                {category.name}
+              </option>
+            ))}
+          </select>
 
           <button
             type="submit"
