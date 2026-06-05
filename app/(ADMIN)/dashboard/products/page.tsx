@@ -4,6 +4,8 @@ import ProductList from "../../components/ProductList";
 
 const ProductsPage = async () => {
   const products = await getAllProducts();
+
+  console.log(products);
   return (
     <div>
       <h1 className="font-semibold">PRODUCTS PAGE</h1>

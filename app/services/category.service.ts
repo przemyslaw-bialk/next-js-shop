@@ -1,3 +1,4 @@
+import dbConnect from "../lib/mongodb";
 import Category from "../models/category.model";
 
 // CREATE PRODUCT //
@@ -7,6 +8,7 @@ export async function createCategory(name: string) {
 
 // GET CATEGORIES //
 export async function getCategories() {
+  await dbConnect();
   const categories = await Category.find().lean();
 
   return categories.map((category) => ({

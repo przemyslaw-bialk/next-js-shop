@@ -12,7 +12,7 @@ export async function createProduct(
 
 // GET ALL PRODUCTS //
 export async function getAllProducts() {
-  const products = await Product.find();
+  const products = await Product.find().populate("category");
 
   if (!products) {
     throw new Error("Products not found");
@@ -24,4 +24,13 @@ export async function getAllProducts() {
 // DELETE PRODUCT //
 export async function deleteProduct(id: string) {
   return Product.findByIdAndDelete(id);
+}
+
+// DELETE PRODUCT //
+export async function getProductsByCategory(categoryId: string) {
+  const products = await Product.find({
+    category: categoryId,
+  }).populate("category");
+
+  return products;
 }
