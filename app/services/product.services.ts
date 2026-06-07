@@ -26,11 +26,15 @@ export async function deleteProduct(id: string) {
   return Product.findByIdAndDelete(id);
 }
 
-// DELETE PRODUCT //
+// GET PRODUCTS BY CATEGORY //
 export async function getProductsByCategory(categoryId: string) {
   const products = await Product.find({
     category: categoryId,
   }).populate("category");
+
+  if (!products) {
+    throw new Error("Products not found");
+  }
 
   return products;
 }
