@@ -5,6 +5,11 @@ const categorySchema = new mongoose.Schema(
     name: {
       type: String,
       unique: true,
+      required: true,
+    },
+    image: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Image",
     },
   },
   { timestamps: true },

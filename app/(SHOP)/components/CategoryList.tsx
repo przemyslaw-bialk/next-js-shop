@@ -9,9 +9,11 @@ const CategoryList = async () => {
     <div>
       <p>category list</p>
       {categories.map((category) => (
-        <Link key={category._id} href={`/products/categories/${category._id}`}>
-          {category.name}{" "}
-        </Link>
+        <div key={category._id}>
+          <Link href={`/products/categories/${category._id}`}>
+            {category.name}{" "}
+          </Link>
+        </div>
       ))}
     </div>
   );

@@ -2,6 +2,7 @@ import Link from "next/link";
 import { RxDashboard } from "react-icons/rx";
 import { FiBox, FiPlus } from "react-icons/fi";
 import { AiOutlineFolderAdd } from "react-icons/ai";
+import { IoCloudUploadOutline } from "react-icons/io5";
 
 type AdminMenuProps = {
   pathname: string;
@@ -29,6 +30,11 @@ const AdminMenu = ({ pathname, handleLinkClick }: AdminMenuProps) => {
       name: "Categories",
       href: "/dashboard/categories",
       icon: AiOutlineFolderAdd,
+    },
+    {
+      name: "Upload Images",
+      href: "/dashboard/images/upload",
+      icon: IoCloudUploadOutline,
     },
   ];
 
