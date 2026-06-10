@@ -33,7 +33,7 @@ const AdminMenu = ({ pathname, handleLinkClick }: AdminMenuProps) => {
     },
     {
       name: "Upload Images",
-      href: "/dashboard/images/upload",
+      href: "/dashboard/images",
       icon: IoCloudUploadOutline,
     },
   ];
