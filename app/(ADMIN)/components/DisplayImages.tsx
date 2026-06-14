@@ -1,3 +1,5 @@
+"use client";
+import { deleteImageAction } from "@/app/actions/images";
 import Image from "next/image";
 
 type ImageType = {
@@ -11,6 +13,9 @@ type ImagesProps = {
 };
 
 const DisplayImages = ({ images }: ImagesProps) => {
+  const handleClick = async (id: string) => {
+    await deleteImageAction(id);
+  };
   return (
     <div className="flex flex-wrap gap-4 ">
       {images.map((image) => (
@@ -25,7 +30,10 @@ const DisplayImages = ({ images }: ImagesProps) => {
             className="object-cover"
           />
 
-          <button className="absolute top-1 right-1 z-10 bg-white rounded-full px-2">
+          <button
+            className="absolute top-1 right-1 z-10 bg-white rounded-full px-2"
+            onClick={() => handleClick(image._id)}
+          >
             X
           </button>
         </div>

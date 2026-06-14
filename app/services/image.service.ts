@@ -11,3 +11,7 @@ export async function getImages() {
     public_id: image.public_id,
   }));
 }
+
+export async function deleteImage(id: string) {
+  await Image.findByIdAndDelete(id);
+}
