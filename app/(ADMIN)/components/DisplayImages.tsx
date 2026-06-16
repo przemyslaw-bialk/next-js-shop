@@ -35,11 +35,7 @@ export default function DisplayImages({ images }: ImagesProps) {
           key={image._id}
           className="relative w-32 h-32 border overflow-hidden rounded-xl"
         >
-          <a
-            className="block w-full h-full"
-            href={image.image_url}
-            data-src={image.image_url}
-          >
+          <a className="block w-full h-full" href={image.image_url}>
             <Image
               src={image.image_url}
               alt={image.public_id}

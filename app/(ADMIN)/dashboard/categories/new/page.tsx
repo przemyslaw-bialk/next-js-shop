@@ -1,18 +1,27 @@
 import { createCategoryAction } from "@/app/actions/categories";
+import { getImages } from "@/app/services/image.service";
 
-const NewCategoryPage = () => {
+const NewCategoryPage = async () => {
+  const images = await getImages();
+
+  console.log(images);
   return (
     <div>
       <h1>create category</h1>
       <form action={createCategoryAction}>
         <label>Category</label>
         <input name="name" placeholder="e.g. Man" />
-        <button
-          type="submit"
-          className="mt-2 rounded-xl bg-neutral-950 px-4 py-2 text-sm font-medium text-white transition hover:bg-neutral-800 cursor-pointer"
-        >
-          Create
-        </button>
+
+        <label>Image</label>
+        <select name="image">
+          {images.map((image) => (
+            <option key={image._id} value={image._id}>
+              {image.public_id}
+            </option>
+          ))}
+        </select>
+
+        <button type="submit">Create</button>
       </form>
     </div>
   );
