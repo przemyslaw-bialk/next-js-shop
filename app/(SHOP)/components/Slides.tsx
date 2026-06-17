@@ -31,10 +31,10 @@ const Slides = () => {
   return (
     <div className="flex">
       {slides.map((slide: ISlides) => (
-        <div className="min-w-full h-120 bg-[#F3EFEA] flex" key={slide.id}>
+        <div className="min-w-full h-120 bg-[#F0ECE8] flex" key={slide.id}>
           <div className=" flex-1/6 md:flex-3/4 p-4 mt-8">
-            <div className="flex flex-col items-start gap-7">
-              <h1 className="text-6xl font-bold">{slide.heading}</h1>
+            <div className="flex flex-col items-start gap-7 ">
+              <h1 className="text-6xl  font-display ">{slide.heading}</h1>
               <p>{slide.text}</p>
               <ButtonSlider text={slide.button_text} />
             </div>

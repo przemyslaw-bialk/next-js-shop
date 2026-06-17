@@ -48,7 +48,8 @@
   --color-neutral-700: var(--color-neutral-700);
   --color-neutral-900: var(--color-neutral-900);
 
-  --font-sans: "DM Sans", sans-serif;
+  --font-sans: var(--font-dm-sans);
+  --font-display: var(--font-cormorant);
 }
 
 body {

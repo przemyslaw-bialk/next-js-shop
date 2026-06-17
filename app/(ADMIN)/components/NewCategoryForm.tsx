@@ -1,5 +1,4 @@
 "use client";
-
 import { useState } from "react";
 import { createCategoryAction } from "@/app/actions/categories";
 import ImageGrid from "./ImageGrid";
