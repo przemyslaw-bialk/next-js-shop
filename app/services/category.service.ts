@@ -2,7 +2,6 @@ import dbConnect from "../lib/mongodb";
 import Category from "../models/category.model";
 import "../models/image.model";
 
-// CREATE PRODUCT //
 type CreateCategoryData = {
   name: string;
   image: string;
