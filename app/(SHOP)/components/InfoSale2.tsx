@@ -1,5 +1,7 @@
 import Image from "next/image";
 
+import Woman from "../../../public/Woman_fashion.png";
+
 const InfoSale2 = () => {
   return (
     <div className="w-full overflow-hidden rounded-xl bg-[#EFEADE] flex">
@@ -13,13 +15,8 @@ const InfoSale2 = () => {
         </button>
       </div>
       <div className="w-1/2 relative">
-        <div>
-          <Image
-            src="/Woman_fashion.png"
-            fill
-            className="object-cover"
-            alt="woman"
-          />
+        <div className="w-1/2 relative">
+          <img src={Woman.src} alt="Woman fashion" className="w-full h-full " />
         </div>
       </div>
     </div>

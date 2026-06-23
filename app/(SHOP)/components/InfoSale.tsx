@@ -2,7 +2,7 @@ import Image from "next/image";
 
 const InfoSale = () => {
   return (
-    <div className="w-full overflow-hidden rounded-xl bg-[#EFEADE] flex">
+    <div className="w-1/2 overflow-hidden h-48 rounded-xl bg-[#EFEADE] flex ">
       <div className="w-1/2 flex flex-col justify-center p-6">
         <h2 className="text-2xl font-bold text-black">
           Up to 30% for some products
@@ -17,7 +17,7 @@ const InfoSale = () => {
           <Image
             src="/Woman_fashion.png"
             fill
-            className="object-cover"
+            className="object-cover scale-120"
             alt="woamng"
           />
         </div>
