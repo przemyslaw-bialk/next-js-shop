@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import { useUser, UserButton } from "@clerk/nextjs";
-import TopInfoBanner from "./TopInfoBanner";
+import TopInfoBanner from "../(SHOP)/components/TopInfoBanner";
 
 export default function Header() {
   const { isSignedIn } = useUser();

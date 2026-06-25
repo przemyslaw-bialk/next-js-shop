@@ -3,7 +3,7 @@ import Image from "next/image";
 const FreeShippingInfo = () => {
   return (
     <div className="w-full md:w-1/2 relative">
-      <div className="bg-[#DADCCE] rounded-xl p-6 h-48 flex items-center justify-between">
+      <div className="bg-[#DADCCE] rounded-xl p-6 h-60 md:h-48 flex items-center justify-between">
         <div className="flex flex-col z-10">
           <span className="text-2xl font-bold text-black">
             Free shipping for orders over 100$
