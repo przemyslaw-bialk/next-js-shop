@@ -2,7 +2,7 @@ import Image from "next/image";
 
 const InfoSale = () => {
   return (
-    <div className="w-full md:w-1/2 relative overflow-hidden md:h-48 rounded-xl bg-[#EFEADE] flex h-60">
+    <div className="w-full md:w-1/2 relative overflow-hidden md:h-48 rounded-xl bg-[#EFEADE] flex h-60 md:pl-4">
       {/* TEXT */}
       <div className="w-full md:w-1/2 flex flex-col justify-center px-3 z-10 relative">
         <h2 className="text-2xl font-bold text-black">
