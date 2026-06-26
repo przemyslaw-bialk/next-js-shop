@@ -1,3 +1,5 @@
+import { addToNewsletterAction } from "@/app/actions/newsletter";
+
 const Newsletter = () => {
   return (
     <div className="bg-[#F8F8F8] mt-6 p-6 rounded-2xl flex items-center justify-between gap-4 flex-col md:flex-row">
@@ -5,7 +7,10 @@ const Newsletter = () => {
         <h2 className="font-semibold text-2xl">Sign up for Newsletter</h2>
         <p className="text-neutral-600">dont miss news and promotions!</p>
       </div>
-      <form className="flex items-center justify-center">
+      <form
+        className="flex items-center justify-center"
+        action={addToNewsletterAction}
+      >
         <input
           type="email"
           name="email"
