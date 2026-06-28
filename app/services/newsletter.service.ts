@@ -16,3 +16,8 @@ export async function addToNewsletter({ email }: Email) {
 
   return Newsletter.create({ email });
 }
+
+export async function getNewsletterSubscribers() {
+  await dbConnect();
+  return Newsletter.find().lean();
+}
