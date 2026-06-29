@@ -2,10 +2,7 @@ import { getNewsletterSubscribers } from "@/app/services/newsletter.service";
 import NewsletterList from "../../components/NewsletterList";
 
 const MarketingPage = async () => {
-  const emails = await getNewsletterSubscribers();
-
-  console.log(emails);
-
+  const emails = JSON.parse(JSON.stringify(await getNewsletterSubscribers()));
   return (
     <div>
       <h2>marketing page</h2>

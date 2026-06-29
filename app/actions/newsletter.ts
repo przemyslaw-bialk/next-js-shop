@@ -1,6 +1,10 @@
 "use server";
 
-import { addToNewsletter } from "../services/newsletter.service";
+import { revalidatePath } from "next/cache";
+import {
+  addToNewsletter,
+  deleteFromNewsletter,
+} from "../services/newsletter.service";
 
 export async function addToNewsletterAction(formData: FormData) {
   const email = formData.get("email");
@@ -10,4 +14,9 @@ export async function addToNewsletterAction(formData: FormData) {
   }
 
   await addToNewsletter({ email });
+}
+
+export async function deleteFromNewsletterAction(id: string) {
+  await deleteFromNewsletter(id);
+  revalidatePath("/dashboard/marketing");
 }

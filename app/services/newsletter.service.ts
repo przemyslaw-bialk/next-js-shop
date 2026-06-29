@@ -21,3 +21,8 @@ export async function getNewsletterSubscribers() {
   await dbConnect();
   return Newsletter.find().lean();
 }
+
+export async function deleteFromNewsletter(id: string) {
+  await dbConnect();
+  return Newsletter.findByIdAndDelete(id);
+}
