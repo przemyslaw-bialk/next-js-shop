@@ -16,12 +16,12 @@ const UserProfile = () => {
     transition duration-300 ease-in-out  shadow-lg p-2
     ${isOpen ? "translate-x-0 opacity-100" : "translate-x-full opacity-0 "}`}
       >
-        <div className="flex flex-col gap-3">
+        <div className="flex flex-col gap-3 ">
           <FiUser
             onClick={() => setIsOpen(false)}
             className="cursor-pointer hover:text-accent"
           />
-          <div className="flex items-center justify-center gap-3 min-h-12">
+          <div className="flex items-center justify-center gap-3 min-h-12 box-border">
             <Link
               href="/sign-in"
               onClick={() => setIsOpen(false)}

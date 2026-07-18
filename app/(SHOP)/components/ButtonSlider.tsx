@@ -12,4 +12,3 @@ const ButtonSlider = ({ text }: { text: string }) => {
 };
 
 export default ButtonSlider;
-``;
