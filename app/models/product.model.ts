@@ -6,6 +6,7 @@ interface IProduct {
   price: number;
   stock: number;
   category: ObjectId;
+  image: ObjectId;
 }
 
 const productSchema = new mongoose.Schema<IProduct>(
@@ -25,6 +26,10 @@ const productSchema = new mongoose.Schema<IProduct>(
     category: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "Category",
+    },
+    image: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Image",
     },
   },
   { timestamps: true },

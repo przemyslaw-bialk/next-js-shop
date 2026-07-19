@@ -9,12 +9,12 @@ type ProductProp = {
 const BestsellersCard = ({ product }: ProductProp) => {
   return (
     <div>
-      <div className="bg-[#F4F2F0] relative rounded-md">
+      <div className="bg-[#F4F2F0] relative rounded-md aspect-4/5 overflow-hidden">
         <Image
-          src="/defaultProductImage.png"
-          width={300}
-          height={400}
+          src={product.image?.image_url || "/defaultProductImage.png"}
+          fill
           alt="product image"
+          className="object-contain hover:scale-102 cursor-pointer duration-300"
         />
         <FaRegHeart className="absolute top-2 right-2" />
       </div>

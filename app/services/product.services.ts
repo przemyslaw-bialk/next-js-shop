@@ -1,3 +1,4 @@
+import dbConnect from "../lib/mongodb";
 import Product from "../models/product.model";
 
 // CREATE PRODUCT //
@@ -6,35 +7,42 @@ export async function createProduct(
   stock: number,
   price: number,
   category: string,
+  image: string,
 ) {
-  return Product.create({ name, stock, price, category });
+  await dbConnect();
+
+  return Product.create({
+    name,
+    stock,
+    price,
+    category,
+    image,
+  });
 }
 
 // GET ALL PRODUCTS //
 export async function getAllProducts() {
-  const products = await Product.find().populate("category");
+  await dbConnect();
 
-  if (!products) {
-    throw new Error("Products not found");
-  }
+  const products = await Product.find().populate("category").populate("image");
 
   return products;
 }
 
 // DELETE PRODUCT //
 export async function deleteProduct(id: string) {
+  await dbConnect();
+
   return Product.findByIdAndDelete(id);
 }
 
 // GET PRODUCTS BY CATEGORY //
 export async function getProductsByCategory(categoryId: string) {
+  await dbConnect();
+
   const products = await Product.find({
     category: categoryId,
   }).populate("category");
-
-  if (!products) {
-    throw new Error("Products not found");
-  }
 
   return products;
 }
