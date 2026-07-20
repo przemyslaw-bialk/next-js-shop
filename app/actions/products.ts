@@ -1,6 +1,10 @@
 "use server";
 import { revalidatePath } from "next/cache";
-import { createProduct, deleteProduct } from "../services/product.services";
+import {
+  createProduct,
+  deleteProduct,
+  findProduct,
+} from "../services/product.services";
 
 export async function createProductAction(formData: FormData) {
   const name = formData.get("name");
@@ -40,4 +44,9 @@ export async function deleteProductAction(id: string) {
 
   await deleteProduct(id);
   revalidatePath("/dashboard/products");
+}
+
+export async function findProductAction(name: string) {
+  const products = await findProduct(name);
+  return JSON.parse(JSON.stringify(products));
 }

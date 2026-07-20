@@ -46,3 +46,17 @@ export async function getProductsByCategory(categoryId: string) {
 
   return products;
 }
+
+export async function findProduct(name: string) {
+  await dbConnect();
+
+  const products = await Product.find({
+    name: {
+      $regex: name,
+      $options: "i",
+    },
+  })
+    .limit(10)
+    .populate("image");
+  return products;
+}
