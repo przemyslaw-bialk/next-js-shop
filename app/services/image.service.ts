@@ -13,5 +13,7 @@ export async function getImages() {
 }
 
 export async function deleteImage(id: string) {
+  await dbConnect();
+
   await Image.findByIdAndDelete(id);
 }

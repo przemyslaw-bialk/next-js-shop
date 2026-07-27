@@ -47,6 +47,7 @@ export async function getProductsByCategory(categoryId: string) {
   return products;
 }
 
+// FIND PRODUCTS BY NAME IN A SEARCH BAR //
 export async function findProduct(name: string) {
   await dbConnect();
 
@@ -59,4 +60,13 @@ export async function findProduct(name: string) {
     .limit(10)
     .populate("image");
   return products;
+}
+
+// FIND PRODUCT BY ID //
+export async function findProductById(id: string) {
+  await dbConnect();
+
+  const product = await Product.findById(id).populate("image").lean();
+
+  return product;
 }

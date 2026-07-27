@@ -62,9 +62,7 @@ const ProductForm = ({ categories, images }: Props) => {
           ))}
         </select>
       </div>
-
       <input type="hidden" name="image" value={selectedImage} />
-
       <ImageGrid
         images={images}
         selectedImage={selectedImage}

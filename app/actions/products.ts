@@ -4,7 +4,9 @@ import {
   createProduct,
   deleteProduct,
   findProduct,
+  findProductById,
 } from "../services/product.services";
+import { Product } from "../types/products";
 
 export async function createProductAction(formData: FormData) {
   const name = formData.get("name");
@@ -49,4 +51,10 @@ export async function deleteProductAction(id: string) {
 export async function findProductAction(name: string) {
   const products = await findProduct(name);
   return JSON.parse(JSON.stringify(products));
+}
+
+export async function findProductByIdAction(
+  id: string,
+): Promise<Product | null> {
+  return await findProductById(id);
 }
