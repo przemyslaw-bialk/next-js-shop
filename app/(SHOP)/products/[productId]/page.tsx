@@ -2,6 +2,7 @@ import { findProductByIdAction } from "@/app/actions/products";
 import NotFound from "@/app/not-found";
 import mongoose from "mongoose";
 import Image from "next/image";
+import ProductInfo from "../../components/ProductInfo";
 
 const ProductPage = async ({
   params,
@@ -32,7 +33,7 @@ const ProductPage = async ({
             className="object-contain"
           />
         </div>
-        <div className="bg-red-200 w-1/2">bg</div>
+        <ProductInfo product={product} />
       </div>
     </div>
   );
