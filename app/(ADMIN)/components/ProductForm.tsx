@@ -5,6 +5,7 @@ import { createProductAction } from "@/app/actions/products";
 import ImageGrid from "@/app/(ADMIN)/components/ImageGrid";
 import type { ImageType } from "@/app/types/image";
 import type { Category } from "@/app/types/category";
+import AddProductSize from "./AddProductSize";
 
 type Props = {
   categories: Category[];
@@ -62,6 +63,7 @@ const ProductForm = ({ categories, images }: Props) => {
           ))}
         </select>
       </div>
+      <AddProductSize />
       <input type="hidden" name="image" value={selectedImage} />
       <ImageGrid
         images={images}

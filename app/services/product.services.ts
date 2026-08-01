@@ -8,6 +8,7 @@ export async function createProduct(
   price: number,
   category: string,
   image: string,
+  sizes: string[],
 ) {
   await dbConnect();
 
@@ -17,6 +18,7 @@ export async function createProduct(
     price,
     category,
     image,
+    sizes,
   });
 }
 

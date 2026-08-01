@@ -14,6 +14,9 @@ export async function createProductAction(formData: FormData) {
   const price = Number(formData.get("price"));
   const category = formData.get("category");
   const image = formData.get("image");
+  const sizes = JSON.parse(
+    (formData.get("sizes") as string) || "[]",
+  ) as string[];
 
   if (!category || typeof category !== "string") {
     throw new Error("invalid category");
@@ -34,7 +37,7 @@ export async function createProductAction(formData: FormData) {
     throw new Error("invalid price");
   }
 
-  await createProduct(name, stock, price, category, image);
+  await createProduct(name, stock, price, category, image, sizes);
 
   revalidatePath("/dashboard/products");
 }

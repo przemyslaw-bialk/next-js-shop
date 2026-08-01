@@ -7,6 +7,7 @@ interface IProduct {
   stock: number;
   category: ObjectId;
   image: ObjectId;
+  sizes: string[];
 }
 
 const productSchema = new mongoose.Schema<IProduct>(
@@ -23,6 +24,7 @@ const productSchema = new mongoose.Schema<IProduct>(
       type: Number,
       required: true,
     },
+    sizes: [String],
     category: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "Category",

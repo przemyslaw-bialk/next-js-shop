@@ -12,6 +12,9 @@ const ProductInfo = ({ product }: ProductProp) => {
       <h1 className="font-display text-2xl">{product.name}</h1>
       <RateProduct />
       <p className="mt-4 font-bold">{product.price.toFixed(2)}</p>
+      {product.sizes?.map((size) => (
+        <p key={size}>{size}</p>
+      ))}
       <ProductAvailabiltyBadge product={product} />
     </div>
   );

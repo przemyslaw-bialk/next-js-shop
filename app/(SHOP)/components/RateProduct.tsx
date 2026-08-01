@@ -6,8 +6,6 @@ const RateProduct = () => {
   const [rating, setRating] = useState(0);
   const [hover, setHover] = useState(0);
 
-  console.log(rating);
-
   return (
     <div className="flex items-center">
       {[...Array(5)].map((_, index) => {
