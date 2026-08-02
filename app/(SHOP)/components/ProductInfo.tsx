@@ -3,6 +3,8 @@ import RateProduct from "./RateProduct";
 import ProductAvailabiltyBadge from "./ProductAvailabilityBadge";
 import ProductSizes from "./ProductSizes";
 import AddToCart from "./AddToCart";
+import AddToWishListButton from "./AddToWishlistButton";
+import SizeTable from "./SizeTable";
 
 type ProductProp = {
   product: Product;
@@ -10,13 +12,16 @@ type ProductProp = {
 
 const ProductInfo = ({ product }: ProductProp) => {
   return (
-    <div className="w-1/2">
+    <div className="w-1/2 ">
       <h1 className="font-display text-2xl">{product.name}</h1>
       <RateProduct />
       <p className="mt-4 font-bold">{product.price.toFixed(2)}</p>
       <ProductAvailabiltyBadge product={product} />
       <ProductSizes product={product} />
+      <SizeTable />
       <AddToCart product={product} />
+
+      <AddToWishListButton />
     </div>
   );
 };

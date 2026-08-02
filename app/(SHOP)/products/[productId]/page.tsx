@@ -24,7 +24,7 @@ const ProductPage = async ({
   return (
     <div>
       <h2>product page here</h2>
-      <div className="flex gap-5 h-65">
+      <div className="flex gap-5 ">
         <div className="relative w-1/2 bg-[#F4F2F0]">
           <Image
             src={product.image?.image_url || "/defaultProductImage.png"}
