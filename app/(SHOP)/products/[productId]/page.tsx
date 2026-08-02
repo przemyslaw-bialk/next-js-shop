@@ -20,7 +20,7 @@ const ProductPage = async ({
   if (!product) {
     return <NotFound />;
   }
-
+  const parsedProduct = JSON.parse(JSON.stringify(product));
   return (
     <div>
       <h2>product page here</h2>
@@ -33,7 +33,7 @@ const ProductPage = async ({
             className="object-contain"
           />
         </div>
-        <ProductInfo product={product} />
+        <ProductInfo product={parsedProduct} />
       </div>
     </div>
   );

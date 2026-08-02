@@ -1,5 +1,7 @@
 "use client";
+import Button from "@/app/components/Button";
 import { useState } from "react";
+import { HiMiniXMark } from "react-icons/hi2";
 
 const AddProductSize = () => {
   const [sizes, setSizes] = useState<string[]>([]);
@@ -19,29 +21,29 @@ const AddProductSize = () => {
   };
   return (
     <div className="flex flex-col gap-2">
-      <label>Sizes</label>
-
+      <label>Sizes:</label>
       <div className="flex gap-2">
         <input
           value={sizeInput}
           onChange={(e) => setSizeInput(e.target.value)}
-          placeholder="e.g. M"
-          className="rounded-xl border px-3 py-2"
+          placeholder="e.g. SM"
+          className="rounded-xl border border-neutral-200 p-1 pl-4"
         />
 
-        <button type="button" onClick={addSize}>
+        <Button onClick={addSize} className="w-20" type="button">
           Add
-        </button>
+        </Button>
       </div>
 
-      <div className="flex flex-wrap gap-2">
+      <div className="flex flex-wrap gap-2 ">
         {sizes.map((size) => (
           <div
             key={size}
-            className="rounded bg-gray-200 px-3 py-1 cursor-pointer"
+            className="relative border border-neutral-200 rounded-xl px-5 py-1 cursor-pointer text-sm group"
             onClick={() => removeSize(size)}
           >
-            {size} ✕
+            {size}
+            <HiMiniXMark className="absolute top-0 right-1 group-hover:text-accent" />
           </div>
         ))}
       </div>

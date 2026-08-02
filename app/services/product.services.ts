@@ -70,5 +70,10 @@ export async function findProductById(id: string) {
 
   const product = await Product.findById(id).populate("image").lean();
 
-  return product;
+  if (!product) return null;
+
+  return {
+    ...product,
+    _id: product._id.toString(),
+  };
 }
