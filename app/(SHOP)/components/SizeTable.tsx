@@ -19,7 +19,7 @@ const SizeTable = () => {
     <div className="mb-6">
       <button
         onClick={() => setShowTable(true)}
-        className="underline text-sm flex items-center gap-1"
+        className="underline text-sm flex items-center gap-1 mt-1"
       >
         <PiTableThin size={20} />
         <span>Size table</span>
