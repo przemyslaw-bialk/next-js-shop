@@ -13,7 +13,21 @@ export const addToWishlistAction = async (productId: string) => {
     };
   }
 
-  return await addToWishlist(userId, productId);
+  try {
+    await addToWishlist(userId, productId);
+
+    return {
+      success: true,
+      message: "Product added to wishlist",
+    };
+  } catch (err) {
+    console.log(err);
+
+    return {
+      success: false,
+      message: "Something went wrong",
+    };
+  }
 };
 
 export const getWishlistAction = async () => {

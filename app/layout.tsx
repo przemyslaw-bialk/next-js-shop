@@ -4,6 +4,7 @@ import "./globals.css";
 import Header from "./components/Header";
 import { ClerkProvider, ClerkLoaded, ClerkLoading } from "@clerk/nextjs";
 import Loader from "./components/Loader";
+import { Toaster } from "sonner";
 
 export const dmSans = DM_Sans({
   subsets: ["latin"],
@@ -42,6 +43,7 @@ export default function RootLayout({
           <ClerkLoaded>
             <Header />
             {children}
+            <Toaster position="top-center" />
           </ClerkLoaded>
         </body>
       </html>

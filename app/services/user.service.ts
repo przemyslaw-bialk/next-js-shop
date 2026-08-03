@@ -63,28 +63,14 @@ export const authorizeAdmin = async (id: string) => {
 export const addToWishlist = async (clerkId: string, productId: string) => {
   await dbConnect();
 
-  try {
-    await User.findOneAndUpdate(
-      { clerkId },
-      {
-        $addToSet: {
-          wishlist: productId,
-        },
+  await User.findOneAndUpdate(
+    { clerkId },
+    {
+      $addToSet: {
+        wishlist: productId,
       },
-    );
-
-    return {
-      success: true,
-      message: "Product added to wishlist",
-    };
-  } catch (err) {
-    console.log("error while adding product to wishlist", err);
-
-    return {
-      success: false,
-      message: "Something went wrong",
-    };
-  }
+    },
+  );
 };
 
 export const getWishlist = async (clerkId: string) => {
@@ -98,9 +84,13 @@ export const getWishlist = async (clerkId: string) => {
       },
     });
 
+    if (!user) {
+      return [];
+    }
+
     return user.wishlist;
   } catch (err) {
-    console.log(err);
+    console.log("error while getting wishlist", err);
     return [];
   }
 };
