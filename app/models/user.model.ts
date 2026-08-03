@@ -6,6 +6,7 @@ interface IUser {
   firstName: string;
   lastName: string;
   role: "admin" | "user";
+  wishlist: mongoose.Types.ObjectId[];
 }
 
 const userSchema = new mongoose.Schema<IUser>(
@@ -31,6 +32,15 @@ const userSchema = new mongoose.Schema<IUser>(
       type: String,
       enum: ["admin", "user"],
       default: "user",
+    },
+    wishlist: {
+      type: [
+        {
+          type: mongoose.Schema.Types.ObjectId,
+          ref: "Product",
+        },
+      ],
+      default: [],
     },
   },
   { timestamps: true },

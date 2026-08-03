@@ -3,6 +3,7 @@ import NotFound from "@/app/not-found";
 import mongoose from "mongoose";
 import Image from "next/image";
 import ProductInfo from "../../components/ProductInfo";
+import Features from "../../components/Features";
 
 const ProductPage = async ({
   params,
@@ -22,9 +23,8 @@ const ProductPage = async ({
   }
   const parsedProduct = JSON.parse(JSON.stringify(product));
   return (
-    <div>
-      <h2>product page here</h2>
-      <div className="flex gap-5 ">
+    <div className="mt-2">
+      <div className="flex gap-5 mb-10 ">
         <div className="relative w-1/2 bg-[#F4F2F0]">
           <Image
             src={product.image?.image_url || "/defaultProductImage.png"}
@@ -35,6 +35,7 @@ const ProductPage = async ({
         </div>
         <ProductInfo product={parsedProduct} />
       </div>
+      <Features />
     </div>
   );
 };

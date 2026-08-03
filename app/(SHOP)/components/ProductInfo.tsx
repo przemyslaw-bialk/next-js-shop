@@ -13,19 +13,21 @@ type ProductProp = {
 
 const ProductInfo = ({ product }: ProductProp) => {
   return (
-    <div className="w-1/2">
-      <h1 className="font-display text-5xl">{product.name}</h1>
-      <RateProduct />
-      <p className="mt-4 text-2xl font-semibold tracking-tight">
-        ${product.price.toFixed(2)}
-      </p>
-      <ProductAvailabiltyBadge product={product} />
-      <ProductSizes product={product} />
-      <SizeTable />
-      <AddToCart product={product} />
-      <AddToWishListButton />
-      <ShippingInfo />
-    </div>
+    <>
+      <div className="w-1/2">
+        <h1 className="font-display text-5xl">{product.name}</h1>
+        <RateProduct />
+        <p className="mt-4 text-2xl font-semibold tracking-tight">
+          ${product.price.toFixed(2)}
+        </p>
+        <ProductAvailabiltyBadge product={product} />
+        <ProductSizes product={product} />
+        <SizeTable />
+        <AddToCart product={product} />
+        <AddToWishListButton productId={product._id} />
+        <ShippingInfo />
+      </div>
+    </>
   );
 };
 

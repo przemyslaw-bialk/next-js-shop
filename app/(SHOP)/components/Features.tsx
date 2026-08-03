@@ -10,7 +10,7 @@ const Features = () => {
         <LiaShippingFastSolid className="text-primary text-3xl" />
         <div>
           <h4 className="font-bold text-sm">Free Shipping</h4>
-          <p className="text-sm text-neutral-600">On orders over $100</p>
+          <p className="text-sm text-neutral-600">On orders over $99</p>
         </div>
       </div>
       <div className="flex items-center gap-3">

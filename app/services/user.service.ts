@@ -59,3 +59,48 @@ export const authorizeAdmin = async (id: string) => {
     console.log("couldnt authorize admin", err);
   }
 };
+
+export const addToWishlist = async (clerkId: string, productId: string) => {
+  await dbConnect();
+
+  try {
+    await User.findOneAndUpdate(
+      { clerkId },
+      {
+        $addToSet: {
+          wishlist: productId,
+        },
+      },
+    );
+
+    return {
+      success: true,
+      message: "Product added to wishlist",
+    };
+  } catch (err) {
+    console.log("error while adding product to wishlist", err);
+
+    return {
+      success: false,
+      message: "Something went wrong",
+    };
+  }
+};
+
+export const getWishlist = async (clerkId: string) => {
+  await dbConnect();
+
+  try {
+    const user = await User.findOne({ clerkId }).populate({
+      path: "wishlist",
+      populate: {
+        path: "image",
+      },
+    });
+
+    return user.wishlist;
+  } catch (err) {
+    console.log(err);
+    return [];
+  }
+};
