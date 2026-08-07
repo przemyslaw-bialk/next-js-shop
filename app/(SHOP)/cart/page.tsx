@@ -1,8 +1,21 @@
+"use client";
+import { useAppSelector } from "@/app/store/hooks";
+
 const CartPage = () => {
+  const items = useAppSelector((state) => state.cart.items);
+
   return (
-    <h1>
-      <p>cart page</p>
-    </h1>
+    <div>
+      <h1>Cart page</h1>
+
+      {items.map((item) => (
+        <div key={item.id}>
+          <p>{item.name}</p>
+          <p>{item.price} zł</p>
+          <p>Ilość: {item.quantity}</p>
+        </div>
+      ))}
+    </div>
   );
 };
 

@@ -5,7 +5,7 @@ import Header from "./components/Header";
 import { ClerkProvider, ClerkLoaded, ClerkLoading } from "@clerk/nextjs";
 import Loader from "./components/Loader";
 import { Toaster } from "sonner";
-import StoreProvider from "./provider";
+import StoreProvider from "./store/provider";
 
 export const dmSans = DM_Sans({
   subsets: ["latin"],

@@ -5,17 +5,20 @@ import { IoCartOutline } from "react-icons/io5";
 import { FiMinus, FiPlus } from "react-icons/fi";
 import { useState } from "react";
 import { Product } from "@/app/types/products";
+import { useDispatch } from "react-redux";
+import { addToCart } from "@/app/features/cart/cartSlice";
 
 type ProductProp = {
   product: Product;
 };
 
 const AddToCart = ({ product }: ProductProp) => {
+  const dispatch = useDispatch();
   const [qtn, setQtn] = useState(1);
 
   return (
-    <div className="flex gap-3 mt-4">
-      <div className="flex h-11 items-center justify-center rounded-sm border border-neutral-200 px-3">
+    <div className="flex items-center gap-4">
+      <div className="flex items-center gap-3">
         <FiMinus
           className="cursor-pointer text-neutral-500 transition hover:text-black"
           size={16}
@@ -41,9 +44,19 @@ const AddToCart = ({ product }: ProductProp) => {
       </div>
 
       <Button
+        onClick={() =>
+          dispatch(
+            addToCart({
+              id: product._id,
+              name: product.name,
+              price: product.price,
+              image: product.image?.image_url ?? "",
+              quantity: qtn,
+            }),
+          )
+        }
         type="button"
-        className=" flex h-11 w-full items-center justify-center gap-3 rounded-sm font-semibold
-        "
+        className="flex h-11 w-full items-center justify-center gap-3 rounded-sm font-semibold"
       >
         <IoCartOutline size={20} />
         <span>Add to cart</span>
