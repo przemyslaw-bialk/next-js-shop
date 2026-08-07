@@ -6,6 +6,7 @@ import TopInfoBanner from "../(SHOP)/components/TopInfoBanner";
 import UserProfile from "../(SHOP)/components/UserProfile";
 import SearchBar from "../(SHOP)/components/SearchBar";
 import { FaRegHeart } from "react-icons/fa6";
+import { IoCartOutline } from "react-icons/io5";
 
 export default function Header() {
   const { isSignedIn } = useUser();
@@ -32,6 +33,12 @@ export default function Header() {
               className="rounded-full p-2 text-xl transition hover:bg-neutral-100 hover:text-primary"
             >
               <FaRegHeart />
+            </Link>
+            <Link
+              href="/cart"
+              className="rounded-full p-2 text-xl transition hover:bg-neutral-100 hover:text-primary"
+            >
+              <IoCartOutline />
             </Link>
 
             <UserProfile />

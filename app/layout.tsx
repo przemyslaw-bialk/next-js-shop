@@ -5,6 +5,7 @@ import Header from "./components/Header";
 import { ClerkProvider, ClerkLoaded, ClerkLoading } from "@clerk/nextjs";
 import Loader from "./components/Loader";
 import { Toaster } from "sonner";
+import StoreProvider from "./provider";
 
 export const dmSans = DM_Sans({
   subsets: ["latin"],
@@ -37,14 +38,16 @@ export default function RootLayout({
           className="min-h-full flex flex-col max-w-300 m-auto p-1"
           suppressHydrationWarning
         >
-          <ClerkLoading>
-            <Loader />
-          </ClerkLoading>
-          <ClerkLoaded>
-            <Header />
-            {children}
-            <Toaster position="top-center" />
-          </ClerkLoaded>
+          <StoreProvider>
+            <ClerkLoading>
+              <Loader />
+            </ClerkLoading>
+            <ClerkLoaded>
+              <Header />
+              {children}
+              <Toaster position="top-center" />
+            </ClerkLoaded>
+          </StoreProvider>
         </body>
       </html>
     </ClerkProvider>
