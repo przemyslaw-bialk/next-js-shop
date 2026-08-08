@@ -5,6 +5,7 @@ type ButtonProps = {
   children: ReactNode;
   variant?: "delete";
   className?: string;
+  disabled?: boolean;
   type: "button" | "submit";
 };
 
@@ -14,9 +15,11 @@ const Button = ({
   variant,
   className,
   type = "button",
+  disabled,
 }: ButtonProps) => {
   return (
     <button
+      disabled={disabled}
       onClick={onClick}
       type={type}
       className={` px-3 py-1 rounded-2xl text-secondary ${className} ${

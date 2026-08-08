@@ -6,7 +6,7 @@ import { FiMinus, FiPlus } from "react-icons/fi";
 import { useState } from "react";
 import { Product } from "@/app/types/products";
 import { useDispatch } from "react-redux";
-import { addToCart } from "@/app/features/cart/cartSlice";
+import { addItemToCart } from "@/app/features/cart/cartSlice";
 
 type ProductProp = {
   product: Product;
@@ -16,6 +16,7 @@ const AddToCart = ({ product }: ProductProp) => {
   const dispatch = useDispatch();
   const [qtn, setQtn] = useState(1);
 
+  const isOutOfStock = product.stock === 0;
   return (
     <div className="flex items-center gap-4">
       <div className="flex items-center gap-3">
@@ -46,20 +47,22 @@ const AddToCart = ({ product }: ProductProp) => {
       <Button
         onClick={() =>
           dispatch(
-            addToCart({
+            addItemToCart({
               id: product._id,
               name: product.name,
               price: product.price,
               image: product.image?.image_url ?? "",
               quantity: qtn,
+              stock: product.stock,
             }),
           )
         }
         type="button"
-        className="flex h-11 w-full items-center justify-center gap-3 rounded-sm font-semibold"
+        className={`flex h-11 w-full items-center justify-center gap-3 rounded-sm font-semibold ${isOutOfStock ? "hover:cursor-not-allowed" : ""}`}
+        disabled={isOutOfStock}
       >
         <IoCartOutline size={20} />
-        <span>Add to cart</span>
+        <span>{isOutOfStock ? "Out of stock" : "Add to cart"}</span>
       </Button>
     </div>
   );
