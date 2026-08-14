@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { DM_Sans, DM_Serif_Display } from "next/font/google";
 import "./globals.css";
-import Header from "./components/Header";
 import { ClerkProvider, ClerkLoaded, ClerkLoading } from "@clerk/nextjs";
 import Loader from "./components/Loader";
 import { Toaster } from "sonner";
@@ -43,7 +42,6 @@ export default function RootLayout({
               <Loader />
             </ClerkLoading>
             <ClerkLoaded>
-              <Header />
               {children}
               <Toaster position="top-center" />
             </ClerkLoaded>

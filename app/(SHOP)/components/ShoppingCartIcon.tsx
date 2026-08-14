@@ -19,7 +19,7 @@ const ShoppingCartIcon = () => {
     >
       <IoCartOutline />
 
-      <span className="absolute right-0 top-0 h-4 w-4  text-xs">
+      <span className="absolute -right-1 -top-1 h-4 w-4  text-xs">
         {itemQuantityInShoppingCart === 0 ? "" : itemQuantityInShoppingCart}
       </span>
     </Link>

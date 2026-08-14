@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import { useUser, UserButton } from "@clerk/nextjs";
-import TopInfoBanner from "../(SHOP)/components/TopInfoBanner";
 import UserProfile from "../(SHOP)/components/UserProfile";
 import SearchBar from "../(SHOP)/components/SearchBar";
 import { FaRegHeart } from "react-icons/fa6";
@@ -13,8 +12,6 @@ export default function Header() {
 
   return (
     <>
-      <TopInfoBanner />
-
       <header className="sticky top-0 z-50 border-b border-neutral-200 bg-white/90 backdrop-blur">
         <div className="mx-auto flex h-18 max-w-7xl items-center justify-between px-4">
           <Link href="/" className="group">
