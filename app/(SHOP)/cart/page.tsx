@@ -2,10 +2,10 @@
 
 import { useAppSelector } from "@/app/store/hooks";
 
-import CartHeader from "../components/CartHeader";
-import EmptyCartInfo from "../components/EmptyCartInfo";
-import ProductInfoInShoppingCart from "../components/ProductInfoInShoppingCart";
-import CartSummary from "../components/CartSummary";
+import CartHeader from "../components/shopping-cart/CartHeader";
+import EmptyCartInfo from "../components/shopping-cart/EmptyCartInfo";
+import ProductInfoInShoppingCart from "../components/shopping-cart/ProductInfoInShoppingCart";
+import CartSummary from "../components/shopping-cart/CartSummary";
 
 const CartPage = () => {
   const items = useAppSelector((state) => state.cart.items);

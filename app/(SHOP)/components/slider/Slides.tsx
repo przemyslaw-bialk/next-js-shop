@@ -1,5 +1,5 @@
 import Image, { StaticImageData } from "next/image";
-import model from "../../../public/model.png";
+import model from "../../../../public/model.png";
 import ButtonSlider from "./ButtonSlider";
 
 interface ISlides {

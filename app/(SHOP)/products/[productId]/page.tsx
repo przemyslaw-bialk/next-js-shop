@@ -2,8 +2,8 @@ import { findProductByIdAction } from "@/app/actions/products";
 import NotFound from "@/app/not-found";
 import mongoose from "mongoose";
 import Image from "next/image";
-import ProductInfo from "../../components/ProductInfo";
-import Features from "../../components/Features";
+import ProductInfo from "../../components/product/ProductInfo";
+import Features from "../../components/features/Features";
 
 const ProductPage = async ({
   params,

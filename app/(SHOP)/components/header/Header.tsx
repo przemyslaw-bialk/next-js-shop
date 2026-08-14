@@ -2,10 +2,10 @@
 
 import Link from "next/link";
 import { useUser, UserButton } from "@clerk/nextjs";
-import UserProfile from "../(SHOP)/components/UserProfile";
-import SearchBar from "../(SHOP)/components/SearchBar";
+import UserProfile from "./UserProfile";
+import SearchBar from "./SearchBar";
 import { FaRegHeart } from "react-icons/fa6";
-import ShoppingCartIcon from "../(SHOP)/components/ShoppingCartIcon";
+import ShoppingCartIcon from "../shopping-cart/ShoppingCartIcon";
 
 export default function Header() {
   const { isSignedIn } = useUser();
