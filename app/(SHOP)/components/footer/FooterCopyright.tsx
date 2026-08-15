@@ -3,7 +3,7 @@ const currentYear = new Date().getFullYear();
 
 const FooterCopyrights = () => {
   return (
-    <>
+    <div className="flex items-center justify-between p-1">
       <span className="text-neutral-400  text-xs ">
         © {currentYear} Przemysław Białk. All rights reserved.
       </span>
@@ -28,7 +28,7 @@ const FooterCopyrights = () => {
           alt="apple pay icon"
         />
       </div>
-    </>
+    </div>
   );
 };
 

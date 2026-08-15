@@ -6,6 +6,7 @@ import UserProfile from "./UserProfile";
 import SearchBar from "./SearchBar";
 import { FaRegHeart } from "react-icons/fa6";
 import ShoppingCartIcon from "../shopping-cart/ShoppingCartIcon";
+import Logo from "../logo/Logo";
 
 export default function Header() {
   const { isSignedIn } = useUser();
@@ -14,11 +15,7 @@ export default function Header() {
     <>
       <header className="sticky top-0 z-50 border-b border-neutral-200 bg-white/90 backdrop-blur">
         <div className="mx-auto flex h-18 max-w-7xl items-center justify-between px-4">
-          <Link href="/" className="group">
-            <span className="font-display text-3xl font-bold tracking-tight transition group-hover:text-primary">
-              ShopIo.
-            </span>
-          </Link>
+          <Logo />
 
           <div className="mx-8 flex-1 max-w-xl">
             <SearchBar />
