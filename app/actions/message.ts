@@ -1,6 +1,6 @@
 "use server";
-
 import { sendMessageFromUser } from "../services/message.service";
+
 export type MessageActionState = {
   status: "success" | "error" | null;
 };
