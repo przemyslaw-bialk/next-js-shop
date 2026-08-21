@@ -1,10 +1,10 @@
-import ContactForm from "../components/contact/ContactForm";
+import ContactWrapper from "../components/contact/ContactWrapper";
 
 const ContactPage = () => {
   return (
     <div>
       <h2>contact page</h2>
-      <ContactForm />
+      <ContactWrapper />
     </div>
   );
 };

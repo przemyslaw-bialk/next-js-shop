@@ -1,6 +1,6 @@
 import ContactIcons from "./ContactIcons";
 
-const ContactInformation = () => {
+const ContactHeader = () => {
   return (
     <div>
       <span className="text-accent uppercase tracking-wider">contact</span>
@@ -17,4 +17,4 @@ const ContactInformation = () => {
   );
 };
 
-export default ContactInformation;
+export default ContactHeader;
